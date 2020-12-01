@@ -29,7 +29,9 @@ public class Main {
 		int contDoc=0, contPer = 0, contCita = 0;
 		String usr="", pw="";// usr = admin, pw = admin
 		
+		//Ciclo do while que le pide pregunta al usuario siquiere terminar la apliacion o no
 		do {
+			//Seguirdad, claves Usuario: admin, PW: admin
 			String USR = (String) prop.get("Admin_Usr");
 			String PW =  (String) prop.get("Admin_pw");
 			
@@ -66,6 +68,7 @@ public class Main {
 			}else {
 				System.out.println("Credenciales Incorrectas");
 			}
+			//Aqui pregunta si se quiere repetir el programa
 			System.out.print("Desea repetir el Programa? \n Si: 1 No: 2: ");
 			x = Integer.parseInt(teclado.readLine());
 		}while(x==1);

@@ -12,6 +12,7 @@ import java.util.Properties;
 public class Cita {
 	private int cont, contDoc, contPer, contCita;
 	
+	//Método que agrega a las citas nuevas a la BD
 	public void Agendar(int cont2) throws FileNotFoundException, IOException {
 		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
 		String DB_C = "./src/test/resources/clincia/archivos/cita.txt";
@@ -47,6 +48,7 @@ public class Cita {
 		System.out.println(prop.get(cont+"_Cita_Motivo"));
 	}
 	
+	//Método que hace la conciliacion de los doctores, pacientes y citas
 	public void Juntar() throws FileNotFoundException, IOException {
 		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
 		
