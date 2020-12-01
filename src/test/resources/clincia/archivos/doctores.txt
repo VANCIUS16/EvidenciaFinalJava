@@ -1,4 +1,4 @@
 #Tue Dec 01 02:19:18 CST 2020
-1_Doctor__Especialidad=Cardiologo
-1_Doctor__Nombre=Marc
-1_Doctor__ApellidoP=Nadal
+1_Doctor_Especialidad=Cardiologo
+1_Doctor_Nombre=Marc
+1_Doctor_ApellidoP=Nadal

@@ -10,13 +10,13 @@ import java.nio.channels.AsynchronousByteChannel;
 import java.util.Properties;
 
 public class Cita {
-	private static final String DB_P = "./src/test/resources/clincia/archivos/cita.txt";
 	private int cont, contDoc, contPer, contCita;
 	
 	public void Agendar(int cont2) throws FileNotFoundException, IOException {
 		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+		String DB_C = "./src/test/resources/clincia/archivos/cita.txt";
 		Properties prop = new Properties();
-		prop.load(new FileInputStream(DB_P));
+		prop.load(new FileInputStream(DB_C));
 		String Fecha, Hora, Motivo;
 		int f=0;
 		int cont =0;
@@ -40,35 +40,48 @@ public class Cita {
 		prop.setProperty((cont+"_Cita_Hora"), Hora.toString() + " hrs");
 		prop.setProperty((cont+"_Cita_Motivo"), Motivo.toString());
 		
-		prop.store(new FileOutputStream(DB_P), null);
+		prop.store(new FileOutputStream(DB_C), null);
 		
 		System.out.println(prop.get(cont+"_Cita_Fecha"));
 		System.out.println(prop.get(cont+"_Cita_Hora"));
 		System.out.println(prop.get(cont+"_Cita_Motivo"));
 	}
 	
-	public void Juntar() throws NumberFormatException, IOException {
+	public void Juntar() throws FileNotFoundException, IOException {
 		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
-		Properties prop = new Properties();
-		prop.load(new FileInputStream(DB_P));
 		
-		this.contDoc = contDoc;
-		this.contPer = contPer;
-		this.contCita = contCita;
+		String DB_DOC = "./src/test/resources/clincia/archivos/doctores.txt";
+		String DB_P = "./src/test/resources/clincia/archivos/cliente.txt";
+		String DB_C = "./src/test/resources/clincia/archivos/cita.txt";
+		String DB_D = "./src/test/resources/clincia/archivos/datos.txt";
+
+		Properties propD = new Properties();
+		Properties propP = new Properties();
+		Properties propC = new Properties();
+		Properties propDatos = new Properties();
+	
+		propD.load(new FileInputStream(DB_DOC));
+		propP.load(new FileInputStream(DB_P));
+		propC.load(new FileInputStream(DB_C));
 		
 		System.out.println("Ingrese los IDs que desea asociar");
+		
 		System.out.print("ID de Doctores: ");
 		contDoc = Integer.parseInt(teclado.readLine());
+		
 		System.out.print("ID de Pacientes: ");
 		contPer = Integer.parseInt(teclado.readLine());
+		
 		System.out.print("ID de Cita: ");
 		contCita = Integer.parseInt(teclado.readLine());	
 		
-		prop.setProperty((cont+"_Doctor_Nombre"), prop.get(cont+"_Doctor_Nombre").toString());
-		prop.setProperty((cont+"_Paciente_Nombre"), prop.get(cont+"_Paciente_Nombre").toString());
-		prop.setProperty((cont+"_Cita"), prop.get(cont+"_Cita").toString());
+		String nombreD = (String) propD.get(contDoc+"_Doctor__Nombre");
+		String nombreP = (String) propP.get(contPer+"_Paciente_Nombre");
+		String cita    = (String) propC.get(contCita+"_Cita");
 		
-		prop.store(new FileOutputStream(DB_P), null);
+		propD.setProperty((contDoc+"relacion"), nombreD + ", " + nombreP + ", "+ cita);
+		
+		propD.store(new FileOutputStream(DB_D), null);
 		
 		System.out.println("Relación guardada exitosamente");
 	}

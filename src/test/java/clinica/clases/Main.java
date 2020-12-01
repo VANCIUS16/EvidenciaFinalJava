@@ -1,3 +1,9 @@
+/*
+ Autor: Marc Nadal
+ Lenguaje: Java
+ Actividad: Evidencia
+ Fecha: 1.10.2020
+ */
 package clinica.clases;
 
 import java.io.BufferedReader;
@@ -35,52 +41,34 @@ public class Main {
 				pw = teclado.readLine();
 				
 				if(pw.equals(PW.toString())){
-
-						System.out.println("1. Menu Doctores\n2. Menu Pacientes\n3. Menu Citas\n4. Conciliar Citas");
-						x = Integer.parseInt(teclado.readLine());
-						try {
-							if(x==1) {
-								contDoc = contDoc +1;
-								doc.Agregar(contDoc);
-							}
-							if(x==2) {
-								contPer = contPer +1;
-								p.Agregar(contPer);
-							}
-							if(x==3){
-								contCita = contCita +1;
-								c.Agendar(contCita);
-							}
-							if(x==4) {
-								c.Juntar();
-							}				
-						}catch (IOException e) {
-							e.printStackTrace();
+					System.out.println("1. Menu Doctores\n2. Menu Pacientes\n3. Menu Citas\n4. Conciliar Citas");
+					x = Integer.parseInt(teclado.readLine());
+					try {
+						if(x==1) {
+							contDoc = contDoc +1;
+							doc.Agregar(contDoc);
 						}
+						if(x==2) {
+							contPer = contPer +1;
+							p.Agregar(contPer);
+						}
+						if(x==3){
+							contCita = contCita +1;
+							c.Agendar(contCita);
+						}
+						if(x==4) {
+							c.Juntar();
+						}				
+					}catch (IOException e) {
+						e.printStackTrace();
+					}
 				}
 			}else {
 				System.out.println("Credenciales Incorrectas");
 			}
-
 			System.out.print("Desea repetir el Programa? \n Si: 1 No: 2: ");
 			x = Integer.parseInt(teclado.readLine());
 		}while(x==1);
 		System.out.println("Fin del programa");
 	}
-
 }
-/*prop.load(new FileInputStream(DB_TXT));
-System.out.println(prop.get("Paciente_Nombre") + "\n");
-
-System.out.println("Cambiar nombre del pacietne");
-String n = teclado.readLine();
-prop.setProperty("Paciente_Nombre",n);
-
-System.out.println("Confirmas el guardad? Si = 1");
-x=Integer.parseInt(teclado.readLine());
-if(x == 1) {
-	prop.store(new FileOutputStream(DB_TXT), null);
-}else {
-	System.out.println("No se guardaron los cambios");
-}
-System.out.println(prop.get("Paciente_Nombre"));*/

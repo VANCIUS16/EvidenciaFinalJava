@@ -12,7 +12,6 @@ public class Paciente {
 	private static final String DB_P = "./src/test/resources/clincia/archivos/cliente.txt";
 	private int cont;
 	
-	
 	public void Agregar(int cont2) throws FileNotFoundException, IOException {
 		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
 		Properties prop = new Properties();
