@@ -1,0 +1,3 @@
+#Tue Dec 01 02:19:31 CST 2020
+1_Paciente_Nombre=Andres
+1_Paciente_ApellidoP=Cardenas

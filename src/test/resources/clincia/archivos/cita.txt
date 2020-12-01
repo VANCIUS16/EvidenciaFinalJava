@@ -1,0 +1,5 @@
+#Tue Dec 01 02:19:56 CST 2020
+1_Cita_Hora=20\:00 hrs
+1_Cita_Motivo=Cotorreo
+1_Cita=1
+1_Cita_Fecha=10-10-2020
